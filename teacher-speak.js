@@ -24,6 +24,7 @@ const add_new_word_sentence_button = document.getElementById('addNewWordSentence
 const input_new_word_sentence = document.getElementById('inputNewWordSentence');
 const record_button = document.getElementById('recordButton');
 const text_from_voice = document.getElementById('textFromVoice');
+const word_sentence_list = document.getElementById('wordSentenceList');
 
 const url_api = 'https://learning-english-api-vmiz.onrender.com';
 // const url_api = 'http://localhost:3003';
@@ -221,6 +222,7 @@ add_new_word_sentence_button.addEventListener('click',function(){
         save_word_sentence_list_to_database(new_word_sentence_list);
         new_word_sentence_list=[];
         input_new_word_sentence.value='';
+        
     }
 })
 input_new_word_sentence.addEventListener("keydown", function (event) {
@@ -239,6 +241,7 @@ input_new_word_sentence.addEventListener("keydown", function (event) {
         save_word_sentence_list_to_database(new_word_sentence_list);
         new_word_sentence_list=[];
         input_new_word_sentence.value='';
+
         }
     }
   });
@@ -316,6 +319,8 @@ async function save_word_sentence_list_to_database(json_data) {
       alert('Saved!');
       console.log('Server response:', data);
       load_word_sentence_from_database(json_data[0].lesson_id);
+      // auto scroll xuống cuối
+      word_sentence_list.scrollTop = word_sentence_list.scrollHeight;
 
     } catch (error) {
       alert('Save failed! ' + error);
