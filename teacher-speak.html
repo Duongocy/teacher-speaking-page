@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher - Prepare speaking practice</title>
+    <link rel="stylesheet" href="teacher-speak.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+</head>
+<body>
+   <div class="body-container" id="bodyContainer">
+    <div class="page-header" id="pageHeader"></div>
+    <div class="lesson-container" id="lessonContainer">
+        <div class="lesson-list-container" id="lessonListContainer">
+            <div class="input-new-lesson" id="inputNewLesson">
+                <input class="input-new-lesson-title" id="inputNewLessonTitle" placeholder="Nhập tên bài học mới">                    
+                <button class="input-new-lesson-button" id="inputNewLessonButton">Add</button>
+            </div>
+            <div class="lesson-list" id="lessonList">
+                <table class="lesson-list-table" id="lessonListTable">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Lesson Title</th>
+                            <th>Del</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div class="push-lesson-list-container" id="pushLessonListContainer"></div>
+        <div class="practice-container hidden" id="practiceContainer">
+            <ul class="practice-menu" id="practiceMenu">
+                <li>Word Practice</li>
+                <li>Sentence Practice</li>
+            </ul>
+        </div>
+        <div class="push-practice-container" id="pushPracticeContainer"></div>
+        <div class="content-container" id="contentContainer">
+            <div class="input-new-word-sentence-container" id="inputNewWordSentenceContainer">
+                <input list="word-list" class="input-new-word-sentence" id="inputNewWordSentence" placeholder="Nhập từ vựng hoặc câu mới">
+                <button class="add-new-word-sentence-button" id="addNewWordSentenceButton">Add</button>
+                <button class="load-new-word-sentence-button" id="loadNewWordSentenceButton">Load from Excel</button>
+            </div>
+            <div class="word-sentence-list" id="wordSentenceList">
+                <table class="word-sentence-table" id="wordSentenceTable">
+                    <thead>
+                        <th>No</th>
+                        <th>Word Sentence</th>
+                        <th>Speak</th>
+                        <th>Del</th>
+                    </thead>
+                </table>
+            </div>
+            <!-- <div class="submit-new-word-sentence" id="submitNewWordSentence">
+                <button class="submit-new-word-sentence-button" id="submitNewWordSentenceButton">Submit</button>
+            </div> -->
+        </div>
+        <div class="preview-container" id="previewContainer">
+            <div class="voice-recognize-container" id="voiceRecognizeContainer">
+                <div class="record-button-container" id="recordButtonContainer">
+                    <button class="record-button" id="recordButton"></button>
+                </div>
+            </div>
+            <div class="text-from-voice-container" id="textFromVoiceContainer">
+                <p class="text-from-voice" id="textFromVoice"></p>
+            </div>
+        </div>
+    </div>
+    <div class="page-footer" id="pageFooter"></div>
+   </div>
+   <datalist id="word-list"></datalist>
+   <script src="teacher-speak.js"></script>
+</body>
+
+</html>
