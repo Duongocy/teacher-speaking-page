@@ -39,14 +39,17 @@
         <div class="content-container" id="contentContainer">
             <div class="input-new-word-sentence-container" id="inputNewWordSentenceContainer">
                 <input list="word-list" class="input-new-word-sentence" id="inputNewWordSentence" placeholder="Nhập từ vựng hoặc câu mới">
+                <input list="grammer-list" class="input-grammer" id="inputGrammer" placeholder="Grammer">
+                <input list="level-list" class="input-level" id="inputLevel" placeholder="Level">
                 <button class="add-new-word-sentence-button" id="addNewWordSentenceButton">Add</button>
-                <button class="load-new-word-sentence-button" id="loadNewWordSentenceButton">Load from Excel</button>
             </div>
             <div class="word-sentence-list" id="wordSentenceList">
                 <table class="word-sentence-table" id="wordSentenceTable">
                     <thead>
                         <th>No</th>
                         <th>Word Sentence</th>
+                        <th>Grammer</th>
+                        <th>Level</th>
                         <th>Speak</th>
                         <th>Del</th>
                     </thead>
@@ -57,14 +60,15 @@
             </div> -->
         </div>
         <div class="preview-container" id="previewContainer">
+            <div class="text-from-voice-container" id="textFromVoiceContainer">
+                <p class="text-from-voice" id="textFromVoice"></p>
+            </div>
             <div class="voice-recognize-container" id="voiceRecognizeContainer">
                 <div class="record-button-container" id="recordButtonContainer">
                     <button class="record-button" id="recordButton"></button>
                 </div>
             </div>
-            <div class="text-from-voice-container" id="textFromVoiceContainer">
-                <p class="text-from-voice" id="textFromVoice"></p>
-            </div>
+            
         </div>
     </div>
     <div class="page-footer" id="pageFooter"></div>

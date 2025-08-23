@@ -25,8 +25,10 @@ const input_new_word_sentence = document.getElementById('inputNewWordSentence');
 const record_button = document.getElementById('recordButton');
 const text_from_voice = document.getElementById('textFromVoice');
 const word_sentence_list = document.getElementById('wordSentenceList');
+const input_grammer = document.getElementById('inputGrammer');
+const input_level = document.getElementById('inputLevel');
 
-const url_api = 'https://learning-english-api-vmiz.onrender.com';
+const url_api = 'https://learning-english-api-o1yh.onrender.com';
 // const url_api = 'http://localhost:3003';
 
 let display_lesson_list_container = true;
@@ -136,11 +138,15 @@ function render_word_sentence_list(data,table){
         let new_row = table.insertRow();
         let word_sentence_no_cell = new_row.insertCell(0);
         let word_sentence_title_cell = new_row.insertCell(1);
-        let word_sentence_speak_cell = new_row.insertCell(2);
-        let word_sentence_delete_cell = new_row.insertCell(3);
+        let word_sentence_grammer_cell = new_row.insertCell(2);
+        let word_sentence_level_cell = new_row.insertCell(3)
+        let word_sentence_speak_cell = new_row.insertCell(4);
+        let word_sentence_delete_cell = new_row.insertCell(5);
 
         word_sentence_no_cell.textContent = index+1;
         word_sentence_title_cell.textContent = element.word_sentence;
+        word_sentence_grammer_cell.textContent = element.grammer;
+        word_sentence_level_cell.textContent=element.level;
         //tạo nút speak
         let speak_button = document.createElement('button');
         speak_button.textContent = '🔊';
@@ -208,11 +214,13 @@ add_new_lesson_button.addEventListener('click',function(){
     }
 })
 add_new_word_sentence_button.addEventListener('click',function(){
-    if (String(input_new_word_sentence.value).length>0)
+    if (String(input_new_word_sentence.value).length>0 && lesson_id!=0 && String(input_grammer.value).length>0 && String(input_level.value).length>0)
     {
         new_word_sentence_object.lesson_id=lesson_id;
         new_word_sentence_object.word_sentence_id =String(Date.now());
         new_word_sentence_object.word_sentence=String(input_new_word_sentence.value);
+        new_word_sentence_object.grammer = String(input_grammer.value);
+        new_word_sentence_object.level = String(input_level.value);
         submit_date = new Date();
         new_word_sentence_object.submit_date = submit_date.toLocaleString("sv-SE", { timeZone: "Asia/Bangkok" }).replace(" ", "T")
         console.log("New word sentence nè : ",new_word_sentence_object);
@@ -224,6 +232,10 @@ add_new_word_sentence_button.addEventListener('click',function(){
         input_new_word_sentence.value='';
         
     }
+    else if (lesson_id===0) {alert('Please select a lesson.');}
+    else if (String(input_new_word_sentence.value).length===0){alert('Please input new word or sentence.');}
+    else if (String(input_grammer.value).length===0){alert('Please input grammer.');}
+    else if (String(input_level.value).length===0){alert('Please input level.');}
 })
 input_new_word_sentence.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
@@ -456,7 +468,7 @@ record_button.onclick = async function () {
 function speak(text) {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "en-US"; // chọn tiếng Anh Mỹ
-    utterance.rate = 0.9;     // đọc hơi chậm lại
+    utterance.rate = 0.5;     // đọc hơi chậm lại
     utterance.pitch = 1.2;    // giọng cao một xíu
     speechSynthesis.speak(utterance);
 }
