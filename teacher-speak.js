@@ -468,7 +468,7 @@ record_button.onclick = async function () {
 function speak(text) {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "en-US"; // chọn tiếng Anh Mỹ
-    utterance.rate = 0.5;     // đọc hơi chậm lại
+    utterance.rate = 0.9;     // đọc hơi chậm lại
     utterance.pitch = 1.2;    // giọng cao một xíu
     speechSynthesis.speak(utterance);
 }
