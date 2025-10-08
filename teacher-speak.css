@@ -78,6 +78,7 @@
     width : 100%;
     align-items: start;
     justify-items: start;
+    overflow-y: auto;
 }
 .lesson-list-table{
     width:100%;
